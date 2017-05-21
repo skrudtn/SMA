@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Category {
+public class Category implements Serializable{
 	private RepresentativeValue RPValue;
 	private ArrayList<RepresentativeValue> RPValueList;
 	private String categoryName;
@@ -21,6 +22,7 @@ public class Category {
 	public void createRPValue(String RPValueName, int constraintsNum){
 		//System.out.println(this.categoryName);
 		RPValue = new RepresentativeValue(RPValueName);
+		if(constraintsNum == 0) constraintsNum = 1;
 		RPValue.setConstraintsNum(constraintsNum);
 		RPValueList.add(RPValue);
 	}

@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class RepresentativeValue {
+public class RepresentativeValue implements Serializable{
 	private ArrayList<String> constraintsList;
 	private int constraintsNum;
 	private String RPValueName;

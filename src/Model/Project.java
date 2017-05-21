@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Project {
+public class Project implements Serializable{
 	private Version version;
 	private ArrayList<Version> versionList;
 	private String projectName;
@@ -58,5 +59,9 @@ public class Project {
 
 	public void setProjectName(String projectName) {
 		this.projectName = projectName;
+	}
+
+	public int getVersionListSize(){
+		return this.versionList.size();
 	}
 }

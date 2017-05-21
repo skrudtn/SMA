@@ -46,5 +46,10 @@ public class ProjectManager {
 	public void setProject(Project project) {
 		this.project = project;
 	}
-	
+	public int reqGetVersionListSize(){
+		return this.project.getVersionListSize();
+	}
+	public Version reqGetLastVersion(){
+		return project.getLastVersion();
+	}
 }

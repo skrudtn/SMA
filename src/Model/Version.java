@@ -1,8 +1,9 @@
 package Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Version {
+public class Version implements Serializable{
 	Category category;
 	private ArrayList<Category> categoryList;
 	private ArrayList<String> feedbackList;
@@ -12,7 +13,7 @@ public class Version {
 	private int cateListIndex;
 	private int cateListIndex2;
 	private int acceptNum;
-	//private int testcaseNum;
+	private int testcaseNum;
 	
 
 	public Version(){
@@ -24,7 +25,7 @@ public class Version {
 		cateListIndex = 0;
 		cateListIndex2 = 0;
 		setAcceptNum(0);
-		//testcaseNum =0;
+		testcaseNum =0;
 	}
 
 	public void createCategory(String categoryName, int RPValueNum){
@@ -98,20 +99,14 @@ public class Version {
 		this.acceptNum = acceptNum;
 	}
 
-	//	public int getTestcaseNum() {
-	//		return testcaseNum;
-	//	}
-	//
-	//	public void setTestcaseNum(int testcaseNum) {
-	//		this.testcaseNum = testcaseNum;
-	//	}
-	//
-	//	public int getAcceptNum() {
-	//		return acceptNum;
-	//	}
-	//
-	//	public void setAcceptNum(int acceptNum) {
-	//		this.acceptNum = acceptNum;
-	//	}
+	public int getTestcaseNum() {
+		return testcaseNum;
+	}
+
+	public void setTestcaseNum(int testcaseNum) {
+		this.testcaseNum = testcaseNum;
+	}
+	
+	
 
 }
