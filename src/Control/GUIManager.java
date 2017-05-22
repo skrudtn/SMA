@@ -37,6 +37,7 @@ public class GUIManager{
 
 	public LeaderFeedbackView leaderFeedbackView;
 	
+	public VersionDisplay vd;
 //	public static void main(String[] args){
 //		MainSystem ms = new MainSystem();
 //		
@@ -259,7 +260,7 @@ public class GUIManager{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VersionDisplay vd = new VersionDisplay(index);
+					vd = new VersionDisplay(index);
 					vd.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -267,7 +268,7 @@ public class GUIManager{
 			}
 		});
 		
-		System.out.println("버전디스플레이");
+		System.out.println("버전디스플레이 : " + index);
 	}
 	
 	public void memberVersionDisplay(int index){
@@ -295,6 +296,11 @@ public class GUIManager{
 	
 	public void setLeaderFeedNum(int num){
 		leaderMain.setFeedbackNum(num);
+	}
+	
+	public void resetDisplayView(){
+		
+		vd.resetTextArea();
 	}
 	
 	public void leaderFeedbackNum(){

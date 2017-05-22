@@ -72,7 +72,7 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		
 	}
 
-	public void addVersionPanel(int vn, int fn){
+	/*public void addVersionPanel(int vn, int fn){
 		vp = new VersionPanel(vn, fn);
 		
 		vp.addMouseListener(new MouseListener(){
@@ -112,6 +112,16 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		vp.setBounds(0, 90*(vn-1), 469, 90);
 
 		System.out.println("에드버전패널!");
+	}*/
+	
+	public void addVersionPanel(int vn, int fn){
+		vp = new VersionPanel(vn, fn);
+		
+		//////////
+		projectPanel.add(vp);
+		vp.setBounds(0, 90*(vn-1), 469, 90);
+
+		System.out.println("에드버전패널!");
 	}
 	
 	public void resetProjectPanel(){
@@ -120,6 +130,10 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		projectPanel.setBounds(149, 10, 469, 394);
 		contentPane.add(projectPanel);
 		projectPanel.setLayout(null);
+	}
+	
+	public void resetDisplayPanel(){
+		MainSystem.gm.resetDisplayView();
 	}
 	
 	public void setFeedbackNum(int num){

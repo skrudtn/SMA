@@ -15,7 +15,7 @@ import Model.Version;
 
 public class VersionDisplay extends JFrame implements ActionListener{
 	private JPanel contentPane;
-	private JTextArea textField;
+	private JTextArea textArea;
 	JLabel acceptNum;
 	JButton btnConfirm;
 	Version tVersion;
@@ -30,20 +30,21 @@ public class VersionDisplay extends JFrame implements ActionListener{
 		Version tVersion;
 
 		
-		textField = new JTextArea();
-		textField.setBounds(12, 10, 460, 462);
-		getContentPane().add(textField);
+		textArea = new JTextArea();
+		textArea.setBounds(12, 10, 460, 462);
+		textArea.setText("");
+		getContentPane().add(textArea);
 		tVersion = MainSystem.pm.getProject().getVersionList().get(index-1);
 		for(int i=0;i<tVersion.getCategoryList().size();i++){
-			textField.setText( textField.getText() + tVersion.getCategoryList().get(i).getCategoryName() + "\n" );
+			textArea.setText( textArea.getText() + tVersion.getCategoryList().get(i).getCategoryName() + "\n" );
 			for(int j=0;j<tVersion.getCategoryList().get(i).getRPValueList().size();j++){
-				textField.setText( textField.getText() + "\t" + tVersion.getCategoryList().get(i).getRPValueList().get(j).getRPValueName() + "\t" );
+				textArea.setText( textArea.getText() + "\t" + tVersion.getCategoryList().get(i).getRPValueList().get(j).getRPValueName() + "\t" );
 				for(int k=0;k<tVersion.getCategoryList().get(i).getRPValueList().get(j).getConstraintsList().size();k++){
-					textField.setText( textField.getText() + "  " + tVersion.getCategoryList().get(i).getRPValueList().get(j).getConstraintsList().get(k) );
+					textArea.setText( textArea.getText() + "  " + tVersion.getCategoryList().get(i).getRPValueList().get(j).getConstraintsList().get(k) );
 				}
-				textField.setText( textField.getText() + "\n");
+				textArea.setText( textArea.getText() + "\n");
 			}
-			textField.setText( textField.getText() + "\n");
+			textArea.setText( textArea.getText() + "\n");
 		}
 		
 		acceptNum = new JLabel("Accept :" + MainSystem.pm.reqGetVersion().getAcceptNum());
@@ -55,6 +56,10 @@ public class VersionDisplay extends JFrame implements ActionListener{
 		getContentPane().add(btnConfirm);
 	}
 
+	public void resetTextArea(){
+		textArea.setText("");
+	}
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

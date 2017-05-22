@@ -147,7 +147,7 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 				int t = Integer.parseInt(constNumFields[i].getText());
 				rvName.add( rvNameFields[i].getText() );
 				if(t == 0){
-					constNum.add(1);
+					constNum.add(0);
 				}
 				else{
 					constNum.add(t);

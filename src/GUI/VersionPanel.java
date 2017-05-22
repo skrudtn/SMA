@@ -2,23 +2,25 @@ package GUI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
 
 import Control.MainSystem;
 
-public class VersionPanel extends JPanel implements ActionListener{
+public class VersionPanel extends JPanel implements ActionListener, MouseListener{
 
 	String vID;
 	JLabel vIDLab;
 	JButton feedBut;
 	JLabel testcaseNum;
 	
-	public VersionPanel(){
+	int vNum;
+	
+	/*public VersionPanel(){
 		setLayout(null);
 		
 		vIDLab = new JLabel("Version 00");
@@ -34,7 +36,7 @@ public class VersionPanel extends JPanel implements ActionListener{
 		testcaseNum.setBounds(288, 32, 169, 15);
 		add(testcaseNum);
 		
-				
+		addMouseListener(this);
 	}
 	
 	public VersionPanel(String name, int num){
@@ -54,11 +56,14 @@ public class VersionPanel extends JPanel implements ActionListener{
 		testcaseNum.setBounds(288, 32, 169, 15);
 		add(testcaseNum);
 		
-				
-	}
+		addMouseListener(this);
+
+	}*/
 	
 	public VersionPanel(int vnum, int num){
 		setLayout(null);
+		
+		this.vNum = vnum;
 		
 		vIDLab = new JLabel("Version " + vnum);
 		vIDLab.setBounds(12, 10, 90, 15);
@@ -73,7 +78,8 @@ public class VersionPanel extends JPanel implements ActionListener{
 		testcaseNum.setBounds(288, 32, 169, 15);
 		add(testcaseNum);
 		
-				
+		addMouseListener(this);
+
 	}
 	
 	public void setVIDLabel(String vid){
@@ -98,6 +104,38 @@ public class VersionPanel extends JPanel implements ActionListener{
 			System.out.println("@@@@@");
 			MainSystem.gm.leaderFeedbackNum();
 		}
+		
+	}
+
+	
+	//패널이 눌러졌을때
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		MainSystem.gm.versionDisplay(vNum);
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
 		
 	}
 }

@@ -10,6 +10,7 @@ public class ProjectManager {
 	}
 	
 	public void reqCreateProject(String projectName, int categoryNum){
+		project = new Project();
 		project.setProjectName(projectName);
 		project.reqSetCategoryNum(categoryNum);
 	}

@@ -116,8 +116,9 @@ public class NewProjectView4 extends JFrame implements ActionListener{
 				MainSystem.pm.reqCreateConstraints(name);
 
 			}
+			//MainSystem.gm.resetDisplayView();
+			
 			MainSystem.gm.leaderMain.resetProjectPanel();
-
 			/*RM에서 계산과정 진행해야함*/	//그리고
 			MainSystem.rm.calTestCaseNum(MainSystem.pm.reqGetLastVersion());
 			MainSystem.gm.addVerisonPanel(1, 0);
