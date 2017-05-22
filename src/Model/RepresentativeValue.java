@@ -7,12 +7,13 @@ public class RepresentativeValue implements Serializable{
 	private ArrayList<String> constraintsList;
 	private int constraintsNum;
 	private String RPValueName;
+	private int propertyNum;
 
 	public RepresentativeValue(String RPValueName){
 		constraintsList = new ArrayList<String>();
 		constraintsNum = 0;
-		constraintsList.add(" ");
 		this.RPValueName = RPValueName;
+		propertyNum = 0;
 	}
 
 	public void createConstraints(String constraintsName){
@@ -44,5 +45,16 @@ public class RepresentativeValue implements Serializable{
 	public ArrayList<String> getConstraintsList(){
 		return constraintsList;
 	}
-
+	
+	public void setConstraintsList(ArrayList<String> constraintsList){
+		this.constraintsList = constraintsList;
+	}
+	
+	public int getPropertyNum() {
+		return propertyNum;
+	}
+	
+	public void setPropertyNum(int propertyNum) {
+		this.propertyNum = propertyNum;
+	}
 }

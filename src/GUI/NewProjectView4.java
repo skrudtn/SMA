@@ -129,7 +129,8 @@ public class NewProjectView4 extends JFrame implements ActionListener{
 			
 			MainSystem.gm.leaderMain.resetProjectPanel();
 			/*RM에서 계산과정 진행해야함*/	//그리고
-			MainSystem.rm.calTestCaseNum(MainSystem.pm.reqGetLastVersion());
+			int temp = MainSystem.rm.calculateTestCaseNum(MainSystem.pm.reqGetLastVersion());
+			MainSystem.pm.reqGetLastVersion().setTestcaseNum(temp);
 			MainSystem.gm.addVerisonPanel(1, 0);
 			MainSystem.gm.leaderMain.setCalNum( MainSystem.pm.reqGetVersion().getTestcaseNum() );
 

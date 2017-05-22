@@ -124,7 +124,7 @@ public class AddVersionView4 extends JFrame implements ActionListener{
 			}
 
 			/*RM에서 계산과정 진행해야함*/	//그리고
-			MainSystem.rm.calTestCaseNum(MainSystem.pm.reqGetLastVersion());
+			MainSystem.rm.calculateTestCaseNum(MainSystem.pm.reqGetLastVersion());
 			
 			MainSystem.gm.addVerisonPanel(MainSystem.pm.reqGetVersionListSize(), 0);
 			MainSystem.gm.leaderMain.setCalNum( MainSystem.pm.reqGetVersion().getTestcaseNum() );

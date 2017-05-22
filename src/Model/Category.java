@@ -10,6 +10,7 @@ public class Category implements Serializable{
 	private int RPValueNum;
 	private int consCount;
 	private int rpListIndex;
+	private int propertyNum;
 
 	public Category(String categoryName){
 		RPValueList = new ArrayList<RepresentativeValue>();
@@ -68,5 +69,13 @@ public class Category implements Serializable{
 
 	public void setRPValueNum(int rPValueNum) {
 		RPValueNum = rPValueNum;
+	}
+	
+	public int getPropertyNum() {
+		return propertyNum;
+	}
+	
+	public void setPropertyNum(int propertyNum) {
+		this.propertyNum = propertyNum;
 	}
 }

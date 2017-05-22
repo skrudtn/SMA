@@ -2,6 +2,7 @@ package Model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Version implements Serializable{
 	Category category;
@@ -24,7 +25,7 @@ public class Version implements Serializable{
 		consCount = 0;
 		cateListIndex = 0;
 		cateListIndex2 = 0;
-		setAcceptNum(0);
+		acceptNum = 0;
 		testcaseNum =0;
 	}
 
@@ -112,6 +113,39 @@ public class Version implements Serializable{
 		this.testcaseNum = testcaseNum;
 	}
 	
-	
+	public Version cloneVersion() {
+	      Version cv = new Version();
+	      
+	      cv.categoryList = new ArrayList<Category>();
+	      cv.categoryNum = this.categoryNum;
+	      
+	      Iterator<Category> cati = this.categoryList.iterator();
+	      while(cati.hasNext()) {
+	         Category cat = (Category)cati.next();
+	         Category cpcat = new Category(cat.getCategoryName());
+	         cpcat.setRPValueList(new ArrayList<RepresentativeValue>());
+	         cpcat.setRPValueNum(cat.getRPValueNum());
+	         cv.categoryList.add(cpcat);
+	         
+	         Iterator<RepresentativeValue> rpvi = cat.getRPValueList().iterator();
+	         while(rpvi.hasNext()) {
+	            RepresentativeValue rpv = (RepresentativeValue)rpvi.next();
+	            RepresentativeValue cprpv = new RepresentativeValue(rpv.getRPValueName());
+	            cprpv.setConstraintsList(new ArrayList<String>());
+	            cprpv.setConstraintsNum(rpv.getConstraintsNum());
+	            cprpv.setPropertyNum(rpv.getPropertyNum());
+	            cpcat.getRPValueList().add(cprpv);
+	            
+	            Iterator<String> coni = rpv.getConstraintsList().iterator();
+	            while(coni.hasNext()) {
+	               String con = (String)coni.next();
+	               String cpcon = new String(con);
+	               cprpv.getConstraintsList().add(cpcon);
+	            }
+	         }
+	      }
+	      
+	      return cv;
+	   }
 
 }

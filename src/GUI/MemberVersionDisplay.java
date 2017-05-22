@@ -27,6 +27,8 @@ public class MemberVersionDisplay extends JFrame implements ActionListener{
 	
 	int index;
 	
+	int flag = 0;//ø¢º¡¿ÃµÁ
+	
 	public MemberVersionDisplay(int index) {
 		setBounds(100, 100, 500, 760);
 		
