@@ -144,8 +144,14 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 		if(e.getSource() == nextBtn){
 			
 			for(int i=0;i<temp;i++){
+				int t = Integer.parseInt(constNumFields[i].getText());
 				rvName.add( rvNameFields[i].getText() );
-				constNum.add( Integer.parseInt(constNumFields[i].getText()) );
+				if(t == 0){
+					constNum.add(1);
+				}
+				else{
+					constNum.add(t);
+				}
 			}
 			MainSystem.gm.newProjectView4(rvName, constNum);
 			this.setVisible(false);//요거 기억해두자!!
@@ -153,6 +159,8 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 			for(int i=0;i<temp;i++){
 				String name = rvNameFields[i].getText();
 				int num = Integer.parseInt(constNumFields[i].getText());
+//				if(num == 0) num=1;
+//				System.out.println("n"+num);
 				MainSystem.pm.reqCreateRPValue(name, num);
 				
 			}			

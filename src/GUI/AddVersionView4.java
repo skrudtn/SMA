@@ -121,8 +121,7 @@ public class AddVersionView4 extends JFrame implements ActionListener{
 			MainSystem.gm.addVerisonPanel(MainSystem.pm.reqGetVersionListSize(), 0);
 			MainSystem.gm.leaderMain.setCalNum( MainSystem.pm.reqGetVersion().getTestcaseNum() );
 			MainSystem.gm.leaderMainRepaint();
-			//MainSystem.reqShowView();
-			
+
 			MainSystem.gm.addVersionFrame1.dispose();
 			MainSystem.gm.addVersionFrame2.dispose();
 			MainSystem.gm.addVersionFrame3.dispose();

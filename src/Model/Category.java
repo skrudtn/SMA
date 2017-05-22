@@ -20,41 +20,22 @@ public class Category implements Serializable{
 	}
 
 	public void createRPValue(String RPValueName, int constraintsNum){
-		//System.out.println(this.categoryName);
 		RPValue = new RepresentativeValue(RPValueName);
-		if(constraintsNum == 0) constraintsNum = 1;
+//		if(constraintsNum == 0) constraintsNum = 1;
 		RPValue.setConstraintsNum(constraintsNum);
 		RPValueList.add(RPValue);
 	}
 
 	public void reqCreateConstraints(String constraintsName){
-		//System.out.println(this.categoryName + " "+RPValue.getRPValueName()+" "+rpListIndex );
 		RPValue = RPValueList.get(rpListIndex);
-		
+
+		System.out.println(this.RPValue.getRPValueName());
 		consCount++;
-		if(consCount == RPValue.getConstraintsNum()){
+		if(consCount == RPValue.getConstraintsNum() || RPValue.getConstraintsNum() ==0){
 			consCount =0;
 			rpListIndex++;
 		}
 		RPValue.createConstraints(constraintsName);
-		/*
-		//System.out.println("i`m "+this.categoryName);
-		System.out.println(this.categoryName+" "+consCount+" "+RPValue.getRPValueName());
-		if(consCount < RPValue.getConstraintsNum()){
-			//System.out.println(this.categoryName);
-			//System.out.println(RPValue.getRPValueName());
-			//System.out.println("cateÀÇ reqCons: "+"listIndex "+listIndex+" "+count+" "+RPValue.getConstraintsNum());
-			RPValue.createConstraints(constraintsName);	
-			consCount++;
-		}
-		else{
-			consCount=0;
-			rpListIndex++;
-			if(rpListIndex == RPValueList.size()) return;
-			RPValue = RPValueList.get(rpListIndex);
-			reqCreateConstraints(constraintsName);
-		}
-		*/
 	}
 
 	public RepresentativeValue getRpValue() {

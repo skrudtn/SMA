@@ -13,10 +13,6 @@ public class MainSystem {
 		
 		MainSystem m = new MainSystem();
 		m.run();
-		// gkgkgkgkg
-		///sdjksjdklfjklsjdfjs
-		//fsjdklfjlsjdklfjsdjf
-		///sdfkjslkdjfklsjkldfjkjskldf
 		
 	}
 	
@@ -25,6 +21,7 @@ public class MainSystem {
 		pm = new ProjectManager();
 		gm = new GUIManager();
 		nm = new NetworkManager();
+		rm = new ResultManager();
 	}
 	
 	public static void reqCreateProject(String projectName, int categoryNum){

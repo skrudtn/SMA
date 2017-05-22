@@ -49,7 +49,12 @@ public class Version implements Serializable{
 		category = categoryList.get(cateListIndex2);
 		int consNumInCate = 0;
 		for(int i=0; i<category.getRPValueList().size();i++){
+			if(category.getRPValueList().get(i).getConstraintsNum() ==0){
+				consNumInCate++;
+			}
+			else{
 			consNumInCate += category.getRPValueList().get(i).getConstraintsNum();
+			}
 		}
 		consCount++;
 		if(consCount == consNumInCate){
