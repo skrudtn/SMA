@@ -8,11 +8,17 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 
 import Control.MainSystem;
+
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Toolkit;
+
 import javax.swing.JLabel;
+import javax.swing.JScrollBar;
 
 public class LeaderMainView extends JFrame implements ActionListener{
 
@@ -38,6 +44,7 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		
 		menuPanel = new JPanel();
 		menuPanel.setBounds(12, 10, 125, 394);
+		menuPanel.setBorder((new BevelBorder(BevelBorder.RAISED)));
 		contentPane.add(menuPanel);
 		
 		newProjectBtn = new JButton("New Project");
@@ -67,8 +74,22 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		
 		projectPanel = new JPanel();
 		projectPanel.setBounds(149, 10, 469, 394);
+		//projectPanel.setBorder((new BevelBorder(BevelBorder.LOWERED)));
 		contentPane.add(projectPanel);
 		projectPanel.setLayout(null);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollBar.setBounds(452, 0, 17, 394);
+		projectPanel.add(scrollBar);
+		
+		
+		// 프레임의 사이즈를 구합니다.
+		Dimension frameSize = this.getSize();
+		System.out.println(frameSize.getWidth() +","+frameSize.getHeight());
+		// 내 모니터의 크기를 구합니다.
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		System.out.println(screenSize.getWidth()+","+screenSize.getHeight());
+		this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
 		
 	}
 
@@ -165,5 +186,4 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		}
 		
 	}
-
 }

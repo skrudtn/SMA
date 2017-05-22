@@ -55,7 +55,6 @@ public class NetworkManager {
 	
 	public void sendFeedback(String feedback){
 		try {
-			System.out.println("센센센");
 			DataOutputStream out = new DataOutputStream(this.socket.getOutputStream());
 			out.writeUTF(feedback);
 		} catch (IOException e) {

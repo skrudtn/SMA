@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -54,6 +56,17 @@ public class VersionDisplay extends JFrame implements ActionListener{
 		btnConfirm = new JButton("Confirm");
 		btnConfirm.setBounds(375, 478, 97, 23);
 		getContentPane().add(btnConfirm);
+		btnConfirm.addActionListener(this);
+		
+		
+		// 프레임의 사이즈를 구합니다.
+		Dimension frameSize = this.getSize();
+		System.out.println(frameSize.getWidth() +","+frameSize.getHeight());
+		// 내 모니터의 크기를 구합니다.
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		System.out.println(screenSize.getWidth()+","+screenSize.getHeight());
+		this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+		
 	}
 
 	public void resetTextArea(){

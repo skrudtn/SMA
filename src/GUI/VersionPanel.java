@@ -8,6 +8,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 
 import Control.MainSystem;
 
@@ -78,6 +79,8 @@ public class VersionPanel extends JPanel implements ActionListener, MouseListene
 		testcaseNum.setBounds(288, 32, 169, 15);
 		add(testcaseNum);
 		
+		this.setBorder((new BevelBorder(BevelBorder.RAISED)));
+		
 		addMouseListener(this);
 
 	}
@@ -112,7 +115,8 @@ public class VersionPanel extends JPanel implements ActionListener, MouseListene
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		MainSystem.gm.versionDisplay(vNum);
+		//MainSystem.gm.versionDisplay(vNum);
+		MainSystem.reqShowView(vNum);
 	}
 
 	@Override

@@ -1,37 +1,35 @@
 package GUI;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
 
-public class MemberVersionPanel extends JFrame {
+public class MemberVersionPanel extends JPanel {
 
 	String vID;
 	JLabel vIDLab;
 	int index;
 	
-	public MemberVersionPanel(int index){
-		setLayout(null);
+	
+	/*public MemberVersionPanel(int index){
+		getContentPane().setLayout(null);
 		
 		this.index = index;
 		
 		vIDLab = new JLabel("Version 00");
 		vIDLab.setBounds(12, 10, 90, 15);
-		add(vIDLab);
+		getContentPane().add(vIDLab);
 		
 				
 	}
 	
 	public MemberVersionPanel(String name, int num){
-		setLayout(null);
+		getContentPane().setLayout(null);
 		
 		vIDLab = new JLabel("Version " + name);
 		vIDLab.setBounds(12, 10, 90, 15);
 		
-		add(vIDLab);
+		getContentPane().add(vIDLab);
 		
 //		feedBut = new JButton("Feedback : " + num);
 //		feedBut.setBounds(197, 57, 111, 23);
@@ -39,15 +37,17 @@ public class MemberVersionPanel extends JFrame {
 //		add(feedBut);
 		
 				
-	}
+	}*/
 	
 	public MemberVersionPanel(int vnum, int num){
-		setLayout(null);
+		this.setLayout(null);
 		
 		vIDLab = new JLabel("Version " + vnum);
 		vIDLab.setBounds(12, 10, 90, 15);
-		add(vIDLab);
+		this.add(vIDLab);
 		
+		this.setBorder((new BevelBorder(BevelBorder.RAISED)));
+
 //		feedBut = new JButton("Feedback : " + num);
 //		feedBut.setBounds(197, 57, 111, 23);
 //		feedBut.addActionListener(this);

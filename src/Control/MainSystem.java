@@ -44,27 +44,8 @@ public class MainSystem {
 		pm.reqAddVersion(categoryNum);
 	}
 	
-	public static void reqShowView(){
-		//pm.reqGetVersion();
-		System.out.println("projecName : "+pm.getProject().getProjectName());
-		for(int i=0; i<pm.reqGetVersion().getCategoryList().size(); i++){
-			System.out.println("cateName : "+pm.reqGetVersion().getCategoryList().get(i).getCategoryName());
-			for(int j=0; j<pm.reqGetVersion().getCategoryList().get(i).getRPValueList().size(); j++){
-				System.out.println("rpName : "+pm.reqGetVersion().getCategoryList().get(i).getRPValueList().get(j).getRPValueName());
-				for(int k=0; k<pm.reqGetVersion().getCategoryList().get(i).getRPValueList().get(j).getConstraintsList().size(); k++){
-					System.out.println("consName : "+pm.reqGetVersion().getCategoryList().get(i).getRPValueList().get(j).getConstraintsList().get(k));
-				}
-			}
-		System.out.println();
-		}
-		
-		System.out.println("==Feedback==");
-		for(int i=0; i<pm.reqGetVersion().getFeedbackList().size(); i++){
-			System.out.println(pm.reqGetVersion().getFeedbackList().get(i));
-		}
-		System.out.println();
-		System.out.println("accept : "+pm.reqGetVersion().getAcceptNum());
-		System.out.println("============");
+	public static void reqShowView(int vNum){
+		gm.versionDisplay(vNum);
 	}
 	
 	public static void reqOpen(){
@@ -83,6 +64,10 @@ public class MainSystem {
 		pm.reqSetFeedback(feedback);
 	}
 	
+	public static void reqSendFeedback(String feedback){
+		nm.sendFeedback(feedback);
+	}
+	
 	public static void reqCombinatinoTestCase(){
 		//rm.combinationTestCase(pm.reqGetVersion());
 	}
@@ -95,8 +80,9 @@ public class MainSystem {
 		
 	}
 	
-	public static void reqLogin(int id){
-		nm.reqLogin(id);
+	public static boolean reqLogin(int id){
+		return nm.reqLogin(id);
+		
 	}
 	
 	public static void reqReceivedProject(Project project){

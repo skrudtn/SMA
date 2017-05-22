@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -41,6 +43,13 @@ public class AddVersionView1 extends JFrame implements ActionListener{
 		nextBtn.addActionListener(this);
 		contentPane.add(nextBtn);
 		
+		// 프레임의 사이즈를 구합니다.
+		Dimension frameSize = this.getSize();
+		System.out.println(frameSize.getWidth() +","+frameSize.getHeight());
+		// 내 모니터의 크기를 구합니다.
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		System.out.println(screenSize.getWidth()+","+screenSize.getHeight());
+		this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
 	}
 
 	@Override

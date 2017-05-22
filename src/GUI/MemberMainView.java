@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -11,13 +13,14 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Control.MainSystem;
+import javax.swing.JLabel;
 
 public class MemberMainView extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	JPanel menuPanel;
 	JPanel projectPanel;
-	JButton sendFeedbackBtn;
+	private JLabel lblMember;
 	
 	public MemberMainView() {
 		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
@@ -31,28 +34,30 @@ public class MemberMainView extends JFrame implements ActionListener{
 		menuPanel.setBounds(12, 10, 125, 394);
 		contentPane.add(menuPanel);
 		
-		sendFeedbackBtn = new JButton("Send Feedback");
-		sendFeedbackBtn.addActionListener(this);
-		menuPanel.add(sendFeedbackBtn);
+		lblMember = new JLabel("Member는 따로 Leader가 보낸 프로젝트를 받는 역할만 수행합니다.");
+		menuPanel.add(lblMember);
 		
 		projectPanel = new JPanel();
 		projectPanel.setBounds(149, 10, 469, 394);
 		contentPane.add(projectPanel);
 		projectPanel.setLayout(null);
 		
+		// 프레임의 사이즈를 구합니다.
+		Dimension frameSize = this.getSize();
+		System.out.println(frameSize.getWidth() +","+frameSize.getHeight());
+		// 내 모니터의 크기를 구합니다.
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		System.out.println(screenSize.getWidth()+","+screenSize.getHeight());
+		this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource() == sendFeedbackBtn){
-			//MainSystem.reqSetFeedback(feedback);
-		}
 	}
 	
 	public void addMemberVersionPanel(int vn, int fn){
-		VersionPanel vp = new VersionPanel(vn, fn);
+		MemberVersionPanel vp = new MemberVersionPanel(vn, fn);
 		
 		vp.addMouseListener(new MouseListener(){
 

@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -84,6 +86,16 @@ public class MemberVersionDisplay extends JFrame implements ActionListener{
 			feedbackTextArea.setEnabled(false);
 			
 		}
+		
+		
+		// 프레임의 사이즈를 구합니다.
+		Dimension frameSize = this.getSize();
+		System.out.println(frameSize.getWidth() +","+frameSize.getHeight());
+		// 내 모니터의 크기를 구합니다.
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		System.out.println(screenSize.getWidth()+","+screenSize.getHeight());
+		this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
+		
 	}
 
 	@Override
@@ -93,7 +105,8 @@ public class MemberVersionDisplay extends JFrame implements ActionListener{
 		if(e.getSource() == ConfirmBtn){
 			System.out.println("컨펌");
 			String temp = feedbackTextArea.getText();
-			MainSystem.nm.sendFeedback(temp);
+			//MainSystem.nm.sendFeedback(temp);
+			MainSystem.reqSendFeedback(temp);
 			this.dispose();
 		}else if(e.getSource() == acceptBtn){
 			System.out.println("엑셉");
