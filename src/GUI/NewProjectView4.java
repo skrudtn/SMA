@@ -122,7 +122,7 @@ public class NewProjectView4 extends JFrame implements ActionListener{
 			for(int i=0;i<temp;i++){
 				String name = constNameFields[i].getText();
 				System.out.println(name);
-				MainSystem.pm.reqCreateConstraints(name);
+				MainSystem.reqCreateConstraints(name);
 
 			}
 			//MainSystem.gm.resetDisplayView();

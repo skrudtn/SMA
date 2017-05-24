@@ -162,8 +162,8 @@ public class AddVersionView3 extends JFrame implements ActionListener {
 			for(int i=0;i<temp;i++){
 				String name = rvNameFields[i].getText();
 				int num = Integer.parseInt(constNumFields[i].getText());
-				MainSystem.pm.reqCreateRPValue(name, num);
-				
+				//MainSystem.pm.reqCreateRPValue(name, num);
+				MainSystem.reqCreateRPValue(name, num);
 			}	
 			
 		}else if(e.getSource() == prevBtn){

@@ -169,7 +169,7 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 				int num = Integer.parseInt(constNumFields[i].getText());
 //				if(num == 0) num=1;
 //				System.out.println("n"+num);
-				MainSystem.pm.reqCreateRPValue(name, num);
+				MainSystem.reqCreateRPValue(name, num);
 				
 			}			
 			

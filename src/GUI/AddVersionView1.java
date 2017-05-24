@@ -63,8 +63,8 @@ public class AddVersionView1 extends JFrame implements ActionListener{
 			
 			int num = Integer.parseInt(categoryNumField.getText());
 			
-			MainSystem.pm.reqAddVersion(num);
-			
+			//MainSystem.pm.reqAddVersion(num);
+			MainSystem.reqAddVersion(num);
 			
 		}
 		

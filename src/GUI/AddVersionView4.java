@@ -120,7 +120,8 @@ public class AddVersionView4 extends JFrame implements ActionListener{
 	
 			for(int i=0;i<temp;i++){
 				String name = constNameFields[i].getText();
-				MainSystem.pm.reqCreateConstraints(name);
+				//MainSystem.pm.reqCreateConstraints(name);
+				MainSystem.reqCreateConstraints(name);
 			}
 
 			/*RM에서 계산과정 진행해야함*/	//그리고

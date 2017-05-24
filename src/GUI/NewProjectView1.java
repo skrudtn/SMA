@@ -79,7 +79,7 @@ public class NewProjectView1 extends JFrame implements ActionListener{
 			String name = projectNameField.getText();
 			int num = Integer.parseInt(categoryNumField.getText());
 			
-			MainSystem.pm.reqCreateProject(name, num);
+			MainSystem.reqCreateProject(name, num);
 
 		}
 		

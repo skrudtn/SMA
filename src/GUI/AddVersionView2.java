@@ -140,8 +140,8 @@ public class AddVersionView2 extends JFrame implements ActionListener {
 			for(int i=0;i<cNum;i++){
 				String name = cNameFields[i].getText();
 				int num = Integer.parseInt(rvnFields[i].getText());
-				MainSystem.pm.reqCreateCategory(name, num);
-			
+				//MainSystem.pm.reqCreateCategory(name, num);
+				MainSystem.reqCreateCategory(name, num);
 			}
 			
 		}else if(e.getSource() == prevBtn){
