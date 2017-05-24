@@ -1,6 +1,8 @@
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -37,24 +39,26 @@ public class NewProjectView4 extends JFrame implements ActionListener{
 
 	public NewProjectView4(ArrayList<String> rvName, ArrayList<Integer> constNum) {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 822, 422);
+		setBounds(100, 100, 822, 440);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
+		
 		this.rvName = rvName;
 		this.constNum = constNum;
-		this.zeroCheck = new ArrayList<Integer>();
-
-
+		
+		
 		panel = new JPanel();
 		panel.setBounds(0, 10, 800, 300);
+		panel.setBackground(new Color(255, 255, 240));
 
 		JScrollPane scrollPane = new JScrollPane(panel);
 		scrollPane.setBounds(0, 10, 800, 337);
+		scrollPane.getViewport().setBackground(new Color(255, 255, 240));
 		contentPane.add(scrollPane);
-
+		
 		temp = numCount(constNum);
 		rvLabels = new JLabel[temp];
 
@@ -64,13 +68,16 @@ public class NewProjectView4 extends JFrame implements ActionListener{
 			for(int j=0;j<constNum.get(i);j++){//이거 좀 손보면 될듯
 				rvLabels[line] = new JLabel("RepreValue:" + (j+1) + " " + rvName.get(i) + "번");
 				rvLabels[line].setBounds(10,10+(line*20), 95, 15);	
+				rvLabels[line].setFont(new Font("맑은 고딕", Font.BOLD, 15));
+				rvLabels[line].setForeground(new Color(165, 42, 42));
+				rvLabels[line].setBackground(new Color(245, 245, 220));
 				line++;
 			}
 			//panel.add(cLabels[i]);
-
+			
 		}
-
-
+		
+		
 		constNameFields = new JTextField[temp];
 		for(int i=0;i<temp;i++){
 			constNameFields[i] = new JTextField();
@@ -79,14 +86,15 @@ public class NewProjectView4 extends JFrame implements ActionListener{
 			constNameFields[i].setText("");
 			//panel.add(cNameFields[i]);
 		}
-
-
-
+		
+		
+		
 		container = new JPanel[temp];
 		for(int i=0;i<temp;i++){
 			container[i] = new JPanel();
 			container[i].add(rvLabels[i]);
 			container[i].add(constNameFields[i]);
+			container[i].setBackground(new Color(255, 255, 240));
 			panel.add(container[i]);
 		}
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -94,13 +102,19 @@ public class NewProjectView4 extends JFrame implements ActionListener{
 
 		prevBtn = new JButton("Prev");
 		prevBtn.setBounds(0, 357, 200, 36);
-		contentPane.add(prevBtn);
+		prevBtn.setBackground(new Color(245, 245, 220));
+		prevBtn.setForeground(new Color(165, 42, 42));
 		prevBtn.addActionListener(this);
-
-		confirmBtn = new JButton("OK!!!!");
-		confirmBtn.setBounds(399, 357, 200, 36);
-		contentPane.add(confirmBtn);
+		prevBtn.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		contentPane.add(prevBtn);
+		
+		confirmBtn = new JButton("OK!!");
+		confirmBtn.setBounds(600, 357, 200, 36);
+		confirmBtn.setBackground(new Color(245, 245, 220));
+		confirmBtn.setForeground(new Color(165, 42, 42));
 		confirmBtn.addActionListener(this);
+		confirmBtn.setFont(new Font("맑은 고딕", Font.BOLD, 15));
+		contentPane.add(confirmBtn);
 
 
 		// 프레임의 사이즈를 구합니다.

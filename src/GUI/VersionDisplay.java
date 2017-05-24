@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,11 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import Control.MainSystem;
 import Model.Version;
+import java.awt.Color;
 
 public class VersionDisplay extends JFrame implements ActionListener{
 	private JPanel contentPane;
@@ -26,6 +29,7 @@ public class VersionDisplay extends JFrame implements ActionListener{
 	public VersionDisplay(int index) {
 		setBounds(100, 100, 500, 550);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);		
@@ -49,12 +53,22 @@ public class VersionDisplay extends JFrame implements ActionListener{
 			textArea.setText( textArea.getText() + "\n");
 		}
 		
+		JScrollPane scrollPane = new JScrollPane(textArea);
+		scrollPane.setBounds(12, 10, 460, 462);
+		contentPane.add(scrollPane);
+		
 		acceptNum = new JLabel("Accept :" + MainSystem.pm.reqGetVersion().getAcceptNum());
 		acceptNum.setBounds(12, 482, 77, 15);
+		acceptNum.setBackground(new Color(245, 245, 220));
+		acceptNum.setForeground(new Color(165, 42, 42));
+		acceptNum.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		getContentPane().add(acceptNum);
 		
 		btnConfirm = new JButton("Confirm");
 		btnConfirm.setBounds(375, 478, 97, 23);
+		btnConfirm.setBackground(new Color(245, 245, 220));
+		btnConfirm.setForeground(new Color(165, 42, 42));
+		btnConfirm.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		getContentPane().add(btnConfirm);
 		btnConfirm.addActionListener(this);
 		

@@ -1,6 +1,8 @@
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -28,13 +30,14 @@ public class AddVersionView2 extends JFrame implements ActionListener {
 	JPanel[] container;
 	int btnLoc;
 	private JPanel panel;
-
+	JScrollPane scrollPane;
 	int cNum;
 	
 	public AddVersionView2(int cNum) {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 622, 442);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -43,10 +46,13 @@ public class AddVersionView2 extends JFrame implements ActionListener {
 		
 		panel = new JPanel();
 		panel.setBounds(0, 10, 600, 300);
+		panel.setBackground(new Color(255, 255, 240));
 
 		
-		JScrollPane scrollPane = new JScrollPane(panel);
-		scrollPane.setBounds(0, 10, 600, 337);
+		scrollPane = new JScrollPane(panel);
+		scrollPane.setBounds(0, 10, 606, 337);
+		scrollPane.getViewport().setBackground(new Color(255, 255, 240));
+
 		contentPane.add(scrollPane);
 		
 		
@@ -55,6 +61,9 @@ public class AddVersionView2 extends JFrame implements ActionListener {
 		for(int i=0;i<cNum;i++){
 			cLabels[i] = new JLabel((i+1) + "¹ø Ä«Å×°í¸® :");
 			cLabels[i].setBounds(10,10+(i*20), 95, 15);
+			cLabels[i].setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+			cLabels[i].setForeground(new Color(165, 42, 42));
+			cLabels[i].setBackground(new Color(245, 245, 220));
 			//panel.add(cLabels[i]);
 			
 		}
@@ -63,6 +72,9 @@ public class AddVersionView2 extends JFrame implements ActionListener {
 		for(int i=0;i<cNum;i++){
 			rvnLabels[i] = new JLabel("Value °³¼ö :");
 			rvnLabels[i].setBounds(260,10+(i*20), 95, 15);
+			rvnLabels[i].setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+			rvnLabels[i].setForeground(new Color(165, 42, 42));
+			rvnLabels[i].setBackground(new Color(245, 245, 220));
 			//panel.add(rvnLabels[i]);
 		}
 		
@@ -93,19 +105,26 @@ public class AddVersionView2 extends JFrame implements ActionListener {
 			container[i].add(cNameFields[i]);
 			container[i].add(rvnLabels[i]);
 			container[i].add(rvnFields[i]);
+			container[i].setBackground(new Color(255, 255, 240));
 			panel.add(container[i]);
 		}
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		prevBtn = new JButton("Prev");
 		prevBtn.setBounds(0, 357, 200, 36);
-		contentPane.add(prevBtn);
+		prevBtn.setBackground(new Color(245, 245, 220));
+		prevBtn.setForeground(new Color(165, 42, 42));
 		prevBtn.addActionListener(this);
+		prevBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		contentPane.add(prevBtn);
 		
 		nextBtn = new JButton("Next");
 		nextBtn.setBounds(399, 357, 200, 36);
-		contentPane.add(nextBtn);
+		nextBtn.setBackground(new Color(245, 245, 220));
+		nextBtn.setForeground(new Color(165, 42, 42));
 		nextBtn.addActionListener(this);
+		nextBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		contentPane.add(nextBtn);
 
 		
 		// ÇÁ·¹ÀÓÀÇ »çÀÌÁî¸¦ ±¸ÇÕ´Ï´Ù.

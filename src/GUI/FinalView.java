@@ -1,5 +1,7 @@
 package GUI;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,6 +26,7 @@ public class FinalView extends JFrame implements ActionListener{
 	public FinalView(int num){
 		setBounds(100, 100, 500, 550);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -43,10 +46,16 @@ public class FinalView extends JFrame implements ActionListener{
 		
 		confirmBtn = new JButton("Confirm");
 		confirmBtn.setBounds(375, 478, 97, 23);
+		confirmBtn.setBackground(new Color(245, 245, 220));
+		confirmBtn.setForeground(new Color(165, 42, 42));
+		confirmBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		contentPane.add(confirmBtn);
 		
 		testCaseNum = new JLabel("TestCase °³¼ö : " + num);
 		testCaseNum.setBounds(22, 482, 141, 15);
+		testCaseNum.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		testCaseNum.setForeground(new Color(165, 42, 42));
+		testCaseNum.setBackground(new Color(245, 245, 220));
 		contentPane.add(testCaseNum);
 		
 		

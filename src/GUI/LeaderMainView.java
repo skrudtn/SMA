@@ -9,16 +9,27 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import Control.MainSystem;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollBar;
+import java.awt.Color;
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+import java.awt.GridLayout;
+import java.awt.CardLayout;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import javax.swing.SwingConstants;
 
 public class LeaderMainView extends JFrame implements ActionListener{
 
@@ -38,49 +49,77 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		setBounds(100, 100, 646, 453);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(128, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		menuPanel = new JPanel();
-		menuPanel.setBounds(12, 10, 125, 394);
-		menuPanel.setBorder((new BevelBorder(BevelBorder.RAISED)));
+		menuPanel.setBackground(new Color(255, 255, 240));
+		menuPanel.setBounds(0, 45, 149, 369);
+		//menuPanel.setBorder((new BevelBorder(BevelBorder.RAISED)));
 		contentPane.add(menuPanel);
 		
 		newProjectBtn = new JButton("New Project");
+		newProjectBtn.setBackground(new Color(245, 245, 220));
+		newProjectBtn.setForeground(new Color(165, 42, 42));
 		newProjectBtn.addActionListener(this);
+		newProjectBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		menuPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		menuPanel.add(newProjectBtn);
 		
 		openBtn = new JButton("Open");
+		openBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		openBtn.setForeground(new Color(165, 42, 42));
+		openBtn.setBackground(new Color(245, 245, 220));
 		openBtn.addActionListener(this);
 		menuPanel.add(openBtn);
 		
 		sendBtn = new JButton("Send");
+		sendBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		sendBtn.setForeground(new Color(165, 42, 42));
+		sendBtn.setBackground(new Color(245, 245, 220));
 		sendBtn.addActionListener(this);
-		menuPanel.add(sendBtn);
 		
 		saveBtn = new JButton("Save");
+		saveBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		saveBtn.setForeground(new Color(165, 42, 42));
+		saveBtn.setBackground(new Color(245, 245, 220));
 		saveBtn.addActionListener(this);
 		menuPanel.add(saveBtn);
+		menuPanel.add(sendBtn);
 		
 		addVersionBtn = new JButton("Add Version");
+		addVersionBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		addVersionBtn.setBackground(new Color(245, 245, 220));
+		addVersionBtn.setForeground(new Color(165, 42, 42));
 		addVersionBtn.addActionListener(this);
 		menuPanel.add(addVersionBtn);
 		
 		finalBtn = new JButton("Final");
+		finalBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		finalBtn.setForeground(new Color(165, 42, 42));
+		finalBtn.setBackground(new Color(245, 245, 220));
 		finalBtn.addActionListener(this);
 		menuPanel.add(finalBtn);
 		
 		
 		projectPanel = new JPanel();
-		projectPanel.setBounds(149, 10, 469, 394);
-		//projectPanel.setBorder((new BevelBorder(BevelBorder.LOWERED)));
+		projectPanel.setBackground(new Color(255, 255, 240));
+		projectPanel.setBounds(149, 45, 481, 369);
 		contentPane.add(projectPanel);
 		projectPanel.setLayout(null);
 		
 		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(452, 0, 17, 394);
+		scrollBar.setBounds(464, 0, 17, 404);
 		projectPanel.add(scrollBar);
+		
+		JLabel lblNewLabel = new JLabel("Feedback Category Partitioning Test");
+		lblNewLabel.setForeground(new Color(255, 250, 240));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.PLAIN, 24));
+		lblNewLabel.setBounds(0, 10, 630, 25);
+		contentPane.add(lblNewLabel);
 		
 		
 		// «¡∑π¿”¿« ªÁ¿Ã¡Ó∏¶ ±∏«’¥œ¥Ÿ.
@@ -92,55 +131,13 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		this.setLocation((screenSize.width - frameSize.width)/2, (screenSize.height - frameSize.height)/2);
 		
 	}
-
-	/*public void addVersionPanel(int vn, int fn){
-		vp = new VersionPanel(vn, fn);
-		
-		vp.addMouseListener(new MouseListener(){
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				MainSystem.gm.versionDisplay(vn);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
-		projectPanel.add(vp);
-		vp.setBounds(0, 90*(vn-1), 469, 90);
-
-		System.out.println("ø°µÂπˆ¿¸∆–≥Œ!");
-	}*/
 	
 	public void addVersionPanel(int vn, int fn){
 		vp = new VersionPanel(vn, fn);
 		
 		//////////
 		projectPanel.add(vp);
-		vp.setBounds(0, 90*(vn-1), 469, 90);
+		vp.setBounds(0, 90*(vn-1), 481, 90);
 
 		System.out.println("ø°µÂπˆ¿¸∆–≥Œ!");
 	}
@@ -148,7 +145,8 @@ public class LeaderMainView extends JFrame implements ActionListener{
 	public void resetProjectPanel(){
 		contentPane.remove(projectPanel);
 		projectPanel = new JPanel();
-		projectPanel.setBounds(149, 10, 469, 394);
+		projectPanel.setBackground(new Color(255, 255, 240));
+		projectPanel.setBounds(149, 45, 481, 369);		
 		contentPane.add(projectPanel);
 		projectPanel.setLayout(null);
 	}

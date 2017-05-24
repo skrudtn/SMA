@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
 import Control.MainSystem;
+import java.awt.Color;
+import java.awt.Font;
 
 public class VersionPanel extends JPanel implements ActionListener, MouseListener{
 
@@ -62,21 +64,32 @@ public class VersionPanel extends JPanel implements ActionListener, MouseListene
 	}*/
 	
 	public VersionPanel(int vnum, int num){
+		setBackground(new Color(245, 245, 220));
 		setLayout(null);
 		
 		this.vNum = vnum;
+		//this.setBounds(0, 0, 481, 90);
 		
 		vIDLab = new JLabel("Version " + vnum);
+		vIDLab.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		vIDLab.setForeground(new Color(165, 42, 42));
+		vIDLab.setBackground(new Color(245, 245, 220));
 		vIDLab.setBounds(12, 10, 90, 15);
 		add(vIDLab);
 		
 		feedBut = new JButton("Feedback : " + num);
-		feedBut.setBounds(197, 57, 111, 23);
+		feedBut.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		feedBut.setForeground(new Color(165, 42, 42));
+		feedBut.setBackground(new Color(245, 245, 220));
+		feedBut.setBounds(336, 57, 133, 23);
 		feedBut.addActionListener(this);
 		add(feedBut);
 		
 		testcaseNum = new JLabel("TestCaseNumber : 00");
-		testcaseNum.setBounds(288, 32, 169, 15);
+		testcaseNum.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		testcaseNum.setForeground(new Color(165, 42, 42));
+		testcaseNum.setBackground(new Color(245, 245, 220));
+		testcaseNum.setBounds(336, 32, 133, 15);
 		add(testcaseNum);
 		
 		this.setBorder((new BevelBorder(BevelBorder.RAISED)));

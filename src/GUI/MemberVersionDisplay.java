@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,11 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 import Control.MainSystem;
 import Model.Version;
+import java.awt.Color;
 
 public class MemberVersionDisplay extends JFrame implements ActionListener{
 	private JPanel contentPane;
@@ -35,6 +38,7 @@ public class MemberVersionDisplay extends JFrame implements ActionListener{
 		this.index = index-1;
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);		
@@ -57,14 +61,24 @@ public class MemberVersionDisplay extends JFrame implements ActionListener{
 			textField.setText( textField.getText() + "\n");
 		}
 		
+		JScrollPane scrollPane = new JScrollPane(textField);
+		scrollPane.setBounds(12, 35, 460, 437);
+		contentPane.add(scrollPane);
+		
 		acceptBtn = new JButton("Accept");
 		acceptBtn.setBounds(12, 688, 97, 23);
 		getContentPane().add(acceptBtn);
+		acceptBtn.setBackground(new Color(245, 245, 220));
+		acceptBtn.setForeground(new Color(165, 42, 42));
+		acceptBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		acceptBtn.addActionListener(this);
 		
 		ConfirmBtn = new JButton("Confirm");
 		ConfirmBtn.setBounds(375, 688, 97, 23);
 		getContentPane().add(ConfirmBtn);
+		ConfirmBtn.setBackground(new Color(245, 245, 220));
+		ConfirmBtn.setForeground(new Color(165, 42, 42));
+		ConfirmBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		ConfirmBtn.addActionListener(this);
 		
 		
@@ -72,13 +86,23 @@ public class MemberVersionDisplay extends JFrame implements ActionListener{
 		feedbackTextArea.setBounds(12, 507, 460, 171);
 		contentPane.add(feedbackTextArea);
 		
+		JScrollPane scrollPane2 = new JScrollPane(feedbackTextArea);
+		scrollPane2.setBounds(12, 507, 460, 171);
+		contentPane.add(scrollPane2);
+		
 		feedbackLabel = new JLabel("FeedBack");
-		feedbackLabel.setBounds(12, 482, 57, 15);
+		feedbackLabel.setBounds(12, 482, 97, 15);
+		feedbackLabel.setBackground(new Color(245, 245, 220));
+		feedbackLabel.setForeground(new Color(165, 42, 42));
+		feedbackLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		contentPane.add(feedbackLabel);
 		
 		
 		versionLabel = new JLabel("Version");
 		versionLabel.setBounds(12, 10, 57, 15);
+		versionLabel.setBackground(new Color(245, 245, 220));
+		versionLabel.setForeground(new Color(165, 42, 42));
+		versionLabel.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
 		contentPane.add(versionLabel);
 		
 		

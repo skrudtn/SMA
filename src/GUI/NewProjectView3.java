@@ -1,6 +1,8 @@
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -38,8 +40,9 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 	
 	public NewProjectView3(ArrayList<String> cName, ArrayList<Integer> rvNum) {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 822, 422);
+		setBounds(100, 100, 822, 440);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -50,10 +53,12 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 
 		panel = new JPanel();
 		panel.setBounds(0, 10, 800, 300);
+		panel.setBackground(new Color(255, 255, 240));
 
 		
 		JScrollPane scrollPane = new JScrollPane(panel);
 		scrollPane.setBounds(0, 10, 800, 337);
+		scrollPane.getViewport().setBackground(new Color(255, 255, 240));
 		contentPane.add(scrollPane);
 		
 		
@@ -73,8 +78,11 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 		int line = 0;
 		for(int i=0;i<cName.size();i++){
 			for(int j=0;j<rvNum.get(i);j++){//ÀÌ°Å Á» ¼Õº¸¸é µÉµí
-				rvLabels[line] = new JLabel( cName.get(i) + " CategoryÀÇ RPValue" +(j+1) + "¹ø");
-				rvLabels[line].setBounds(10,10+(line*20), 95, 15);	
+				rvLabels[line] = new JLabel( cName.get(i) + " Category:" +(j+1) + "¹ø");
+				rvLabels[line].setBounds(10,10+(line*20), 95, 15);
+				rvLabels[line].setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+				rvLabels[line].setForeground(new Color(165, 42, 42));
+				rvLabels[line].setBackground(new Color(245, 245, 220));
 				line++;
 			}
 			//panel.add(cLabels[i]);
@@ -85,6 +93,9 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 		for(int i=0;i<temp;i++){
 			constNumLabels[i] = new JLabel("constraints °³¼ö :");
 			constNumLabels[i].setBounds(260,10+(i*20), 95, 15);
+			constNumLabels[i].setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+			constNumLabels[i].setForeground(new Color(165, 42, 42));
+			constNumLabels[i].setBackground(new Color(245, 245, 220));
 			//panel.add(rvnLabels[i]);
 		}
 		
@@ -115,6 +126,7 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 			container[i].add(rvNameFields[i]);
 			container[i].add(constNumLabels[i]);
 			container[i].add(constNumFields[i]);
+			container[i].setBackground(new Color(255, 255, 240));
 			panel.add(container[i]);
 		}
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
@@ -122,13 +134,19 @@ public class NewProjectView3 extends JFrame implements ActionListener{
 
 		prevBtn = new JButton("Prev");
 		prevBtn.setBounds(0, 357, 200, 36);
-		contentPane.add(prevBtn);
+		prevBtn.setBackground(new Color(245, 245, 220));
+		prevBtn.setForeground(new Color(165, 42, 42));
 		prevBtn.addActionListener(this);
+		prevBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		contentPane.add(prevBtn);
 		
 		nextBtn = new JButton("Next");
-		nextBtn.setBounds(399, 357, 200, 36);
-		contentPane.add(nextBtn);
+		nextBtn.setBounds(600, 357, 200, 36);
+		nextBtn.setBackground(new Color(245, 245, 220));
+		nextBtn.setForeground(new Color(165, 42, 42));
 		nextBtn.addActionListener(this);
+		nextBtn.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		contentPane.add(nextBtn);
 
 		// ÇÁ·¹ÀÓÀÇ »çÀÌÁî¸¦ ±¸ÇÕ´Ï´Ù.
 		Dimension frameSize = this.getSize();

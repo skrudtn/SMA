@@ -1,6 +1,8 @@
 package GUI;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,25 +24,34 @@ public class AddVersionView1 extends JFrame implements ActionListener{
 	JButton nextBtn;
 	
 	public AddVersionView1() {
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		this.setTitle("Feedback CPT");
+
+		setBounds(100, 100, 360, 240);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		categoryNum = new JLabel("\uCE74\uD14C\uACE0\uB9AC \uAC1C\uC218");
-		categoryNum.setBounds(84, 93, 95, 15);
+		categoryNum.setBounds(40, 91, 95, 15);
+		categoryNum.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
+		categoryNum.setForeground(new Color(165, 42, 42));
+		categoryNum.setBackground(new Color(245, 245, 220));
 		contentPane.add(categoryNum);
 		
 		categoryNumField = new JTextField();
-		categoryNumField.setBounds(191, 90, 116, 21);
+		categoryNumField.setBounds(168, 90, 116, 21);
 		contentPane.add(categoryNumField);
 		categoryNumField.setColumns(10);
 		
 		nextBtn = new JButton("Next");
-		nextBtn.setBounds(81, 111, 97, 23);
+		nextBtn.setBounds(235, 168, 97, 23);
+		nextBtn.setBackground(new Color(245, 245, 220));
+		nextBtn.setForeground(new Color(165, 42, 42));
 		nextBtn.addActionListener(this);
+		nextBtn.setFont(new Font("∏º¿∫ ∞ÌµÒ", Font.BOLD, 15));
 		contentPane.add(nextBtn);
 		
 		// «¡∑π¿”¿« ªÁ¿Ã¡Ó∏¶ ±∏«’¥œ¥Ÿ.

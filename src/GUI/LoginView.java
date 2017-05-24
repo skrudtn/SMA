@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,6 +14,14 @@ import javax.swing.border.EmptyBorder;
 import com.sun.glass.ui.Screen;
 
 import Control.MainSystem;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.GridLayout;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
 
 public class LoginView extends JFrame implements ActionListener{
 
@@ -22,6 +31,7 @@ public class LoginView extends JFrame implements ActionListener{
 	
 	JButton MemberButton;
 	JButton LeaderButton;
+	private JLabel label;
 
 	/**
 	 * Create the frame.
@@ -29,21 +39,33 @@ public class LoginView extends JFrame implements ActionListener{
 	public LoginView() {
 		setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		
-		setBounds( 100, 100, 450, 300 );
+		setBounds( 100, 100, 360, 240 );
 		this.setResizable(false);
+		this.setTitle("Feedback CPT");
 		
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 240));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
 		MemberButton = new JButton("Member");
-		MemberButton.setBounds(239, 114, 97, 23);
+		MemberButton.setBounds(100, 120, 156, 70);
+		MemberButton.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		MemberButton.setForeground(new Color(165, 42, 42));
+		MemberButton.setBackground(new Color(245, 245, 220));
 		MemberButton.addActionListener(this);
+		contentPane.setLayout(null);
+		
+		label = new JLabel("");
+		label.setBounds(89, 24, 0, 0);
+		contentPane.add(label);
 		contentPane.add(MemberButton);
 		
 		LeaderButton = new JButton("Leader");
-		LeaderButton.setBounds(81, 111, 97, 23);
+		LeaderButton.setBounds(100, 24, 156, 70);
+		LeaderButton.setFont(new Font("¸¼Àº °íµñ", Font.BOLD, 15));
+		LeaderButton.setForeground(new Color(165, 42, 42));
+		LeaderButton.setBackground(new Color(245, 245, 220));
 		LeaderButton.addActionListener(this);
 		contentPane.add(LeaderButton);
 		
