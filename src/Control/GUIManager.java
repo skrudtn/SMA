@@ -7,6 +7,7 @@ import GUI.AddVersionView2;
 import GUI.AddVersionView3;
 import GUI.AddVersionView4;
 import GUI.FileChooser;
+import GUI.FinalView;
 import GUI.LeaderFeedbackView;
 import GUI.LeaderMainView;
 import GUI.LoginView;
@@ -36,6 +37,8 @@ public class GUIManager{
 	public AddVersionView4 addVersionFrame4;
 
 	public LeaderFeedbackView leaderFeedbackView;
+	
+	public FinalView finalView;
 	
 	public VersionDisplay vd;
 //	public static void main(String[] args){
@@ -309,6 +312,22 @@ public class GUIManager{
 				try {
 					leaderFeedbackView = new LeaderFeedbackView(MainSystem.pm.reqGetVersion().getAcceptNum(), MainSystem.pm.reqGetVersion().getFeedbackList().size());
 					leaderFeedbackView.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		System.out.println("뉴프로젝트4창 열림?");
+	}
+	
+	public void finalView(){
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					finalView = new FinalView(5);
+					finalView.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

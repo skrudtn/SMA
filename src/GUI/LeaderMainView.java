@@ -182,7 +182,7 @@ public class LeaderMainView extends JFrame implements ActionListener{
 		}else if(e.getSource() == addVersionBtn){
 			MainSystem.gm.addVersionView1();
 		}else if(e.getSource() == finalBtn){
-			
+			MainSystem.gm.finalView();
 		}
 		
 	}

@@ -69,7 +69,7 @@ public class MainSystem {
 	}
 	
 	public static void reqCombinatinoTestCase(){
-		//rm.combinationTestCase(pm.reqGetVersion());
+		rm.combinationTestCase(pm.reqGetVersion());
 	}
 	
 	public static void reqSetFeedback(String feedback){
