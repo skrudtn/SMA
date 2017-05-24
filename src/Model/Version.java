@@ -15,7 +15,7 @@ public class Version implements Serializable{
 	private int cateListIndex2;
 	private int acceptNum;
 	private int testcaseNum;
-	private String[] result;
+	private ArrayList<String> result;
 
 	public Version(){
 		categoryList = new ArrayList<Category>();
@@ -27,15 +27,16 @@ public class Version implements Serializable{
 		cateListIndex2 = 0;
 		acceptNum = 0;
 		testcaseNum =0;
+		result = new ArrayList<String>();
 	}
 
-	public String[] getResult(){
+	public ArrayList<String> getResult(){
 		return result;
 		
 	}
 	
-	public void setResult(String r[]){
-		result = r;
+	public void setResult(String r){
+		result.add(r);
 	}
 	
 	public void createCategory(String categoryName, int RPValueNum){
@@ -120,7 +121,6 @@ public class Version implements Serializable{
 
 	public void setTestcaseNum(int testcaseNum) {
 		this.testcaseNum = testcaseNum;
-		result = new String[this.testcaseNum];
 	}
 	
 	public Version cloneVersion() {
