@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -37,9 +38,10 @@ public class FinalView extends JFrame implements ActionListener{
 		
 		finalView = new JTextArea();
 		finalView.setBounds(12, 10, 460, 458);
-		String[] temp = {"이진호","이원재","나경수","한석호"};//v.getResult();
-		for(int i=0;i<temp.length;i++){
-			finalView.setText(finalView.getText() + temp[i] + "\n");
+		//String[] temp = {"이진호","이원재","나경수","한석호"};//
+		ArrayList<String> temp = v.getResult();
+		for(int i=0;i<temp.size();i++){
+			finalView.setText(finalView.getText() + temp.get(i) + "\n");
 		}
 		
 		contentPane.add(finalView);

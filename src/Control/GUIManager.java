@@ -326,7 +326,7 @@ public class GUIManager{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					finalView = new FinalView(5);
+					finalView = new FinalView(MainSystem.pm.reqGetLastVersion().getTestcaseNum());
 					finalView.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
